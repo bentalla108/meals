@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:meals/models/category.dart';
+import 'package:meals/models/meal.dart';
 import 'package:meals/widgets/category_grid_item.dart';
 import 'package:meals/widgets/meals.dart';
 import 'package:meals/data/dummy_data.dart';
 
 class CategoriesScreen extends StatelessWidget {
-  const CategoriesScreen({super.key});
+  CategoriesScreen({super.key, required this.toggleMealFav});
+
+  void Function(Meal meal) toggleMealFav;
 
   /*  Selected Function to show category */
   void _selected(BuildContext context, Category category) {
@@ -15,8 +18,9 @@ class CategoriesScreen extends StatelessWidget {
 
     Navigator.of(context).push(MaterialPageRoute(
         builder: (BuildContext context) => MealsSCreen(
+              toggleMealFav: toggleMealFav,
               meals: filteredMeal,
-              tiltle: category.title,
+              title: category.title,
             )));
   }
 

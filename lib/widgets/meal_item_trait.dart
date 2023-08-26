@@ -14,7 +14,7 @@ class MeatItemTrait extends StatelessWidget {
           size: 17,
           color: Colors.white,
         ),
-        SizedBox(
+        const SizedBox(
           width: 5,
         ),
         Text(label, style: const TextStyle(color: Colors.white)),
